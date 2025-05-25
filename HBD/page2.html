@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Page 2</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background: #fff;
+      overflow-y: auto;
+      text-align: center;
+    }
+
+    img {
+      max-width: 90%;
+      margin-top: 100px;
+    }
+
+    button {
+      margin-top: 50px;
+      padding: 15px 30px;
+      font-size: 18px;
+      background-color: #ff4081;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+@keyframes fadeSlideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate {
+  animation: fadeSlideUp 1.2s ease-out both;
+}
+@keyframes fadeSlideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate {
+  animation: fadeSlideUp 1.2s ease-out both;
+}
+  </style>
+</head>
+<body>
+
+  <!-- Your Image -->
+  <img class="animate" src="photo2.jpg" alt="Wish Image" />
+
+  <!-- Continue Button -->
+  <button class="button" onclick="goToNextPage()">Continue</button>
+
+  <!-- JS -->
+  <script>
+    function goToNextPage() {
+      window.location.href = "page3.html";
+    }
+
+  // Check if password was verified in index.html
+  if (localStorage.getItem("accessGranted") !== "true") {
+    document.write("<h2>Access Denied</h2>");
+    setTimeout(() => {
+      window.location.href = "index.html"; // Redirect to password prompt
+    }, 2000);
+  }
+
+  </script>
+
+</body>
+</html>

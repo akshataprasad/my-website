@@ -1,0 +1,71 @@
+<!-- page7.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Open Gift</title>
+  <style>
+    body { margin: 0; padding: 0; height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; }
+    img { width: 90%; }
+    button { margin-top: 20px; padding: 10px 20px; }
+@keyframes fadeSlideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate {
+  animation: fadeSlideUp 1.2s ease-out both;
+}
+@keyframes fadeSlideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate {
+  animation: fadeSlideUp 1.2s ease-out both;
+}
+  </style>
+</head>
+<body>
+  <img class="animate" src="photo7.jpg" alt="Gift" />
+  <button class="button" onclick="openGift()">Tap to Open</button>
+
+  <!-- Confetti Script -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  <script>
+    function openGift() {
+      confetti({
+        particleCount: 180,
+        spread: 100,
+        origin: { y: 0.6 }
+      });
+
+      setTimeout(() => {
+        window.location.href = 'page8.html';
+      }, 1200); // delay so confetti shows
+    }
+
+  // Check if password was verified in index.html
+  if (localStorage.getItem("accessGranted") !== "true") {
+    document.write("<h2>Access Denied</h2>");
+    setTimeout(() => {
+      window.location.href = "index.html"; // Redirect to password prompt
+    }, 2000);
+  }
+
+  </script>
+</body>
+</html>

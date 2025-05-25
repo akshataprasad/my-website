@@ -1,0 +1,43 @@
+<!-- page8.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Video Surprise</title>
+  <style>
+    body, html { margin: 0; padding: 0; height: 100%; }
+    video { width: 100%; height: 100%; object-fit: cover; }
+@keyframes fadeSlideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  </style>
+</head>
+<body>
+  <video autoplay playsinline muted id="surpriseVideo">
+    <source src="video2.mp4" type="video/mp4" />
+  </video>
+
+  <script>
+    // On video end, go to next
+    document.getElementById('surpriseVideo').addEventListener('ended', () => {
+      window.location.href = 'page9.html';
+    });
+
+  // Check if password was verified in index.html
+  if (localStorage.getItem("accessGranted") !== "true") {
+    document.write("<h2>Access Denied</h2>");
+    setTimeout(() => {
+      window.location.href = "index.html"; // Redirect to password prompt
+    }, 2000);
+  }
+
+  </script>
+</body>
+</html>
